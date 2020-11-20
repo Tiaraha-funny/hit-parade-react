@@ -1,0 +1,161 @@
+body {
+    overflow-wrap: break-word;
+}
+
+article {
+    width: 80%;
+    margin: auto;
+    background-color: #e16162;
+    padding: 20px;
+}
+
+.main__heading {
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+li {
+    list-style: none;
+}
+
+.heading-links > a:hover {
+    color: black;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.popular__container {
+    background-color: #f9bc60;
+    padding: 20px;
+    align-items: center;
+}
+
+.like {
+    background-color: #f9bc60;
+    border: 1px transparent solid;
+    cursor: pointer;
+    outline: none;
+}
+
+.popular__song {
+    background-color: #abd1c6;
+    border-radius: 10px;
+    width: 98%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.popular__song header {
+    text-align: center;
+    padding: 10px;
+}
+
+.popular {
+    margin: 20px;
+}
+
+.add {
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #f9bc60;
+    cursor: pointer;
+}
+
+.show-form {
+    background-color: black;
+}
+
+.display-block {
+    overflow-wrap: break-word;
+    background-color: #c2f0e3;
+    line-height: 30px;
+    width: 74%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 10%;
+    height: 700px;
+    padding-top: 30px;
+    border-radius: 12px;
+}
+.inputs {
+    display: grid;
+    margin-top: 30px;
+    grid-row-gap: 30px;
+    padding: 30px;
+}
+.inputs div {
+    font-size: 30px;
+}
+
+.display-block label {
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+    text-transform: uppercase;
+}
+
+.display-none {
+    background-color: rosybrown;
+}
+
+.main-forminput {
+    background-color: #ffffff;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+input {
+    padding: 13px;
+    width: 90%;
+    border: 1px transparent solid;
+}
+
+.addbtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.addbtns button {
+    width: 100px;
+    padding: 16px;
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #f9bc60;
+}
+
+.heart button {
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #f9bc60;
+    cursor: pointer;
+}
+
+.favorite {
+    color: tomato;
+    width: 50px;
+    height: 50px;
+}
