@@ -5,8 +5,11 @@ import Cart from "./Cart";
 import PopularSong from "./PopularSong";
 import Style from "./Style";
 import "../Components/index.css";
+import Lyrics from "./Lyrics";
+import StylesName from "./StylesName";
 
 function SongsApp() {
+
   return (
     <article>
       <header className="main__heading">
@@ -33,11 +36,17 @@ function SongsApp() {
         <Route exact path="/">
           <PopularSong />
         </Route>
-        <Route path="/styles">
+        <Route exact path="/styles">
           <Style />
+        </Route>
+        <Route path="/styles/:style">
+          <StylesName />
         </Route>
         <Route path="/add">
           <Add />
+        </Route>
+        <Route path="/song/:songId">
+          <Lyrics/>
         </Route>
         <Route path="/cart">
           <Cart />

@@ -83,22 +83,21 @@ a {
     overflow-wrap: break-word;
     background-color: #c2f0e3;
     line-height: 30px;
-    width: 74%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    width: 90%;
     margin: auto;
     left: 10%;
     height: 700px;
     padding-top: 30px;
     border-radius: 12px;
 }
+
 .inputs {
     display: grid;
     margin-top: 30px;
     grid-row-gap: 30px;
     padding: 30px;
 }
+
 .inputs div {
     font-size: 30px;
 }
@@ -110,19 +109,6 @@ a {
     text-transform: uppercase;
 }
 
-.display-none {
-    background-color: rosybrown;
-}
-
-.main-forminput {
-    background-color: #ffffff;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-}
 
 input {
     padding: 13px;
@@ -136,7 +122,7 @@ input {
     justify-content: space-around;
 }
 
-.addbtns button {
+.addbtns button, .buyBtn {
     width: 100px;
     padding: 16px;
     border: 1px solid transparent;
@@ -158,6 +144,70 @@ input {
     color: tomato;
     width: 50px;
     height: 50px;
+}
+
+.lyrics {
+    font-size: 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.verse {
+    padding: 20px;
+}
+
+.headphone {
+    width: 25px;
+    height: 25px;
+    margin-right: 30px;
+}
+
+.styles {
+    width: 60%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.delBtn {
+    background-color: #c2f0e3;
+    border: 1px transparent solid;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c2f0e3;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.cost {
+    color: rgb(98, 98, 243);
+    font-size: 25px;
+}
+.cart-page {
+    position: relative;
+}
+
+.total-cost {
+    font-size: 20px;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+}
+
+i {
+    font-size: 25px;
+}
+
+.styeOfSong {
+    margin: 20px;
 }
 
 /*# sourceMappingURL=/hit-parade-react.e31bb0bc.css.map */
