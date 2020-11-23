@@ -15,13 +15,16 @@ function PopularSong() {
     isFavorited,
     cartItems,
     addToCart,
+    setIsFavorited,
   } = useContext(Contexts);
 
   return (
     <div className="popular__song">
+      
       <header>
         <h2>These are the most popular songs</h2>
       </header>
+
       {sortedByLike.map((song) => { 
 
         function cartIcon() {
@@ -29,11 +32,22 @@ function PopularSong() {
           console.log(song);
         
           if (alreadyInCart) {
-            return<i onClick={() => removeSong(song.id)} className="ri-shopping-cart-fill cart"  ></i>
+            return <i onClick={() => removeSong(song.id)} className="ri-shopping-cart-fill cart"  ></i>
             
           } else {
-            return<i  onClick={() => addToCart(song)} className="ri-shopping-cart-2-line"></i>
+            return <i  onClick={() => addToCart(song)} className="ri-shopping-cart-2-line"></i>
         
+          }
+        }
+
+        function heartIcon() {
+          console.log("This is the heart icon");
+          setIsFavorited(true);
+          console.log(isFavorited);
+          if(isFavorited) {
+            return <i onClick={() => setIsFavorited(false)} className="ri-heart-fill favorite"></i>
+          } else {
+            <i onClick={() => changeFill(song.id)} className="ri-heart-line favorite"></i>
           }
         }
         
@@ -41,13 +55,7 @@ function PopularSong() {
         <div key={song.id} className="popular">
           <ul className="popular__container">
             <li className="heart">
-              <button onClick={changeFill}>
-                {isFavorited ? (
-                  <i className="ri-heart-fill favorite"></i>
-                ) : (
-                  <i className="ri-heart-line favorite"></i>
-                )}
-              </button>
+              {heartIcon()}
             </li>
             <li>
               <h3>

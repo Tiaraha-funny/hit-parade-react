@@ -33975,8 +33975,11 @@ function UseContextSongs(_ref) {
     console.log("It is deleted");
   }
 
-  function changeFill() {
-    setIsFavorited(true);
+  function changeFill(id) {
+    var findSongBYId = songs.find(function (song) {
+      return song.id === id;
+    });
+    setIsFavorited(findSongBYId);
   }
 
   function increase(id) {
@@ -34032,6 +34035,7 @@ function UseContextSongs(_ref) {
       like: like,
       changeFill: changeFill,
       isFavorited: isFavorited,
+      setIsFavorited: setIsFavorited,
       songs: songs,
       setSongs: setSongs,
       addToCart: addToCart,
@@ -34292,7 +34296,8 @@ function PopularSong() {
       decrease = _useContext.decrease,
       isFavorited = _useContext.isFavorited,
       cartItems = _useContext.cartItems,
-      addToCart = _useContext.addToCart;
+      addToCart = _useContext.addToCart,
+      setIsFavorited = _useContext.setIsFavorited;
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "popular__song"
@@ -34320,6 +34325,29 @@ function PopularSong() {
       }
     }
 
+    function heartIcon() {
+      console.log("This is the heart icon");
+      setIsFavorited(true);
+      console.log(isFavorited);
+
+      if (isFavorited) {
+        return /*#__PURE__*/_react.default.createElement("i", {
+          onClick: function onClick() {
+            return setIsFavorited(false);
+          },
+          className: "ri-heart-fill favorite"
+        });
+      } else {
+        /*#__PURE__*/
+        _react.default.createElement("i", {
+          onClick: function onClick() {
+            return changeFill(song.id);
+          },
+          className: "ri-heart-line favorite"
+        });
+      }
+    }
+
     return /*#__PURE__*/_react.default.createElement("div", {
       key: song.id,
       className: "popular"
@@ -34327,13 +34355,7 @@ function PopularSong() {
       className: "popular__container"
     }, /*#__PURE__*/_react.default.createElement("li", {
       className: "heart"
-    }, /*#__PURE__*/_react.default.createElement("button", {
-      onClick: changeFill
-    }, isFavorited ? /*#__PURE__*/_react.default.createElement("i", {
-      className: "ri-heart-fill favorite"
-    }) : /*#__PURE__*/_react.default.createElement("i", {
-      className: "ri-heart-line favorite"
-    }))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("h3", null, song.title, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("i", null, song.artist))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
+    }, heartIcon()), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("h3", null, song.title, /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("i", null, song.artist))), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement("button", {
       onClick: function onClick() {
         return increase(song.id);
       },
@@ -34401,7 +34423,17 @@ function Style() {
 
 var _default = Style;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./UseContextSongs":"Components/UseContextSongs.js","../icons/headphones.svg":"icons/headphones.svg","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./UseContextSongs":"Components/UseContextSongs.js","../icons/headphones.svg":"icons/headphones.svg","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"icons/heart.svg":[function(require,module,exports) {
+module.exports = "/heart.978b954c.svg";
+},{}],"icons/cart.svg":[function(require,module,exports) {
+module.exports = "/cart.a248aaae.svg";
+},{}],"icons/popular.svg":[function(require,module,exports) {
+module.exports = "/popular.0bb72e14.svg";
+},{}],"icons/clouds.svg":[function(require,module,exports) {
+module.exports = "/clouds.7ce79a81.svg";
+},{}],"icons/happy.svg":[function(require,module,exports) {
+module.exports = "/happy.19a1f5f4.svg";
+},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -34580,6 +34612,16 @@ var _PopularSong = _interopRequireDefault(require("./PopularSong"));
 
 var _Style = _interopRequireDefault(require("./Style"));
 
+var _heart = _interopRequireDefault(require("../icons/heart.svg"));
+
+var _cart = _interopRequireDefault(require("../icons/cart.svg"));
+
+var _popular = _interopRequireDefault(require("../icons/popular.svg"));
+
+var _clouds = _interopRequireDefault(require("../icons/clouds.svg"));
+
+var _happy = _interopRequireDefault(require("../icons/happy.svg"));
+
 require("../Components/index.css");
 
 var _Lyrics = _interopRequireDefault(require("./Lyrics"));
@@ -34591,21 +34633,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function SongsApp() {
   return /*#__PURE__*/_react.default.createElement("article", null, /*#__PURE__*/_react.default.createElement("header", {
     className: "main__heading"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Hit Parade")), /*#__PURE__*/_react.default.createElement("nav", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, " ", /*#__PURE__*/_react.default.createElement("img", {
+    src: _happy.default,
+    width: "50px"
+  }), " Hit Parade ", /*#__PURE__*/_react.default.createElement("img", {
+    src: _happy.default,
+    width: "50px"
+  }))), /*#__PURE__*/_react.default.createElement("nav", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", {
     className: "heading-links"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _popular.default
+  }), " ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, "Popular Sog")), /*#__PURE__*/_react.default.createElement("li", {
     className: "heading-links"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _heart.default
+  }), " ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/styles"
   }, "Styles")), /*#__PURE__*/_react.default.createElement("li", {
     className: "heading-links"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _clouds.default
+  }), " ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/add"
   }, "Add")), /*#__PURE__*/_react.default.createElement("li", {
     className: "heading-links"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _cart.default
+  }), " ", /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/cart"
   }, "Cart")))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
@@ -34626,7 +34682,7 @@ function SongsApp() {
 
 var _default = SongsApp;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Add":"Components/Add.js","./Cart":"Components/Cart.js","./PopularSong":"Components/PopularSong.js","./Style":"Components/Style.js","../Components/index.css":"Components/index.css","./Lyrics":"Components/Lyrics.js","./StylesName":"Components/StylesName.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Add":"Components/Add.js","./Cart":"Components/Cart.js","./PopularSong":"Components/PopularSong.js","./Style":"Components/Style.js","../icons/heart.svg":"icons/heart.svg","../icons/cart.svg":"icons/cart.svg","../icons/popular.svg":"icons/popular.svg","../icons/clouds.svg":"icons/clouds.svg","../icons/happy.svg":"icons/happy.svg","../Components/index.css":"Components/index.css","./Lyrics":"Components/Lyrics.js","./StylesName":"Components/StylesName.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34670,7 +34726,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57201" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63892" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

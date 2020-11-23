@@ -4,6 +4,11 @@ import Add from "./Add";
 import Cart from "./Cart";
 import PopularSong from "./PopularSong";
 import Style from "./Style";
+import heartIcon from "../icons/heart.svg";
+import cartIcon from "../icons/cart.svg";
+import starsIcon from "../icons/popular.svg";
+import cloudIcon from "../icons/clouds.svg";
+import happyIcon from "../icons/happy.svg";
 import "../Components/index.css";
 import Lyrics from "./Lyrics";
 import StylesName from "./StylesName";
@@ -13,21 +18,21 @@ function SongsApp() {
   return (
     <article>
       <header className="main__heading">
-        <h1>Hit Parade</h1>
+      <h1> <img src={happyIcon} width="50px" /> Hit Parade <img src={happyIcon} width="50px" /></h1>
       </header>
       <nav>
         <ul>
           <li className="heading-links">
-            <Link to="/">Popular Sog</Link>
+          <img src={starsIcon}/> <Link to="/">Popular Sog</Link>
           </li>
           <li className="heading-links">
-            <Link to="/styles">Styles</Link>
+           <img src={heartIcon}/> <Link to="/styles">Styles</Link>
           </li>
           <li className="heading-links">
-            <Link to="/add">Add</Link>
+           <img src={cloudIcon} /> <Link to="/add">Add</Link>
           </li>
           <li className="heading-links">
-            <Link to="/cart">Cart</Link>
+          <img src={cartIcon}/> <Link to="/cart">Cart</Link>
           </li>
         </ul>
       </nav>

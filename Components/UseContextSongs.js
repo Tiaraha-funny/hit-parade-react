@@ -37,8 +37,9 @@ function UseContextSongs({ children }) {
     console.log("It is deleted");
   }
 
-  function changeFill() {
-    setIsFavorited(true);
+  function changeFill(id) {
+    const findSongBYId = songs.find(song => song.id === id)
+    setIsFavorited(findSongBYId);
   }
 
   function increase(id) {
@@ -90,6 +91,7 @@ function UseContextSongs({ children }) {
         like,
         changeFill,
         isFavorited,
+        setIsFavorited,
         songs,
         setSongs,
         addToCart,
