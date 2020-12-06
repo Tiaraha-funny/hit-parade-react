@@ -3,19 +3,20 @@ import { Contexts } from "./UseContextSongs";
 import likeSvg from "../icons/like.svg";
 import dislikeSvg from "../icons/dislike.svg";
 import dotsSvg from "../icons/dots.svg";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 import { Link } from "react-router-dom";
 
 function PopularSong() {
   const {
-    changeFill,
     sortedByLike,
     increase,
     decrease,
     isFavorited,
     cartItems,
     addToCart,
-    setIsFavorited,
+    removeSong,
+    favoriteSong,
   } = useContext(Contexts);
 
   return (
@@ -35,27 +36,16 @@ function PopularSong() {
             return <i onClick={() => removeSong(song.id)} className="ri-shopping-cart-fill cart"  ></i>
             
           } else {
-            return <i  onClick={() => addToCart(song)} className="ri-shopping-cart-2-line"></i>
+            return <i  onClick={() => addToCart(song)} className="ri-shopping-cart-2-line cart"></i>
         
-          }
-        }
-
-        function heartIcon() {
-          console.log("This is the heart icon");
-          setIsFavorited(true);
-          console.log(isFavorited);
-          if(isFavorited) {
-            return <i onClick={() => setIsFavorited(false)} className="ri-heart-fill favorite"></i>
-          } else {
-            <i onClick={() => changeFill(song.id)} className="ri-heart-line favorite"></i>
           }
         }
         
         return (
         <div key={song.id} className="popular">
           <ul className="popular__container">
-            <li className="heart">
-              {heartIcon()}
+            <li className="heart" onClick={() => favoriteSong(song.id)}>
+              {isFavorited ? <AiOutlineHeart /> : <AiFillHeart />}
             </li>
             <li>
               <h3>

@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useHistory, useParams } from "react-router-dom";
 import { Contexts } from "./UseContextSongs";
 
 function Lyrics() {
+  const history = useHistory();
   const { songs } = useContext(Contexts);
   console.log(songs);
   const { songId } = useParams();
@@ -13,7 +15,10 @@ function Lyrics() {
     <div>
       {filteredSongs.map((song) => (
         <div key={song.id} className="lyrics">
-          <h3>{song.artist}: {song.title}</h3>
+          <AiOutlineArrowLeft onClick={history.goBack} />
+          <h3>
+            {song.artist}: {song.title}
+          </h3>
           <div className="verse">{song.lyrics}</div>
         </div>
       ))}

@@ -28,7 +28,6 @@ function Add() {
     };
 
     setSongs([...allSongs, newSongs]);
-    console.log(songs);
   }
 
   return (

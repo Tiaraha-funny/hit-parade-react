@@ -10,9 +10,9 @@ function Cart() {
   ));
 
   let totalCost = 0;
-    for(let i = 0; i < cartItems.length; i++) {
-        totalCost += cartItems[i].price;
-    }
+  for (let i = 0; i < cartItems.length; i++) {
+    totalCost += cartItems[i].price;
+  }
 
   const [text, setText] = useState("Buy it");
 
@@ -30,9 +30,17 @@ function Cart() {
     <main className="cart-page">
       {cartItemElements}
       <div className="order-button">
-        {cartItems.length > 0 ? <button className="buyBtn" onClick={orderPlace}>{text}</button> : <p>Sorry! Your cart is empty</p>}
+        {cartItems.length > 0 ? (
+          <button className="buyBtn" onClick={orderPlace}>
+            {text}
+          </button>
+        ) : (
+          <p className="sorry"> 😜 Sorry 🤔! Your cart is empty 👌!!!</p>
+        )}
       </div>
-      <p className="total-cost">Total:<b className="cost"> {totalCost} Ar</b> </p>
+      <p className="total-cost">
+        Total:<b className="cost"> {totalCost} Ar</b>{" "}
+      </p>
     </main>
   );
 }

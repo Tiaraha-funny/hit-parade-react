@@ -37,11 +37,6 @@ function UseContextSongs({ children }) {
     console.log("It is deleted");
   }
 
-  function changeFill(id) {
-    const findSongBYId = songs.find(song => song.id === id)
-    setIsFavorited(findSongBYId);
-  }
-
   function increase(id) {
     console.log("I like it");
     const findById = songs.find((song) => song.id === id);
@@ -81,6 +76,19 @@ function UseContextSongs({ children }) {
     setCartItems((prevItems) => prevItems.filter((image) => image.id !== id));
   }
 
+  function favoriteSong(songId) {
+    setIsFavorited(true)
+    const updatedSong = songs.map(song => {
+      if(song.id === songId) {
+        return {
+          ...song,
+          isFavorited: !song.isFavorited
+        }
+      }
+    })
+    setSongs(updatedSong)
+  }
+
   return (
     <Contexts.Provider
       value={{
@@ -89,9 +97,8 @@ function UseContextSongs({ children }) {
         increase,
         decrease,
         like,
-        changeFill,
         isFavorited,
-        setIsFavorited,
+        favoriteSong,
         songs,
         setSongs,
         addToCart,

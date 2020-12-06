@@ -3,8 +3,28 @@ body {
 }
 
 h1 {
+    margin: 0;
     color: rgb(255, 255, 255);
     text-shadow: 2px 3px 6px violet,  4px 6px 5px lawngreen;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+nav {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+nav ul li a {
+    color: palegreen;
+}
+
+.sorry {
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
 }
 
 article {
@@ -116,6 +136,7 @@ a {
 
 input {
     padding: 13px;
+    border-radius: 5px;
     width: 90%;
     border: 1px transparent solid;
 }
@@ -138,7 +159,7 @@ input {
     background-color: #f9bc60;
 }
 
-.heart button {
+.heart {
     border: 1px solid transparent;
     outline: none;
     background-color: #f9bc60;
@@ -149,6 +170,10 @@ input {
     color: tomato;
     width: 50px;
     height: 50px;
+}
+
+.cart {
+    color: #ee4545;
 }
 
 .lyrics {
